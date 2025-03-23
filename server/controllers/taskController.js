@@ -33,7 +33,7 @@ export const addTask = async (req, res) => {
 export const getAllTask = async (req, res) => {
   try {
       const { authToken } = req.cookies; // ✅ Extract token from cookies
-      console.log('#########',req.cookies)
+      console.log(req.cookies)
       console.log('&&&&&&&&&&&&',authToken)
       if(req.cookies) {
         return res.status(401).json({ error: req.cookies });

@@ -5,7 +5,7 @@ const URL = import.meta.env.VITE_BACKEND_URL
 
 export const authUser = async(userData) => {
     try {
-        const response = await axios.post(`${URL}/api/auth/signin`,userData,{withCredentials:true})
+        const response = await axios.post(`${URL}/api/auth/signin`,{"token":userData},{withCredentials:true})
         return response.data
     } catch (error) {
         console.log(error)

@@ -33,7 +33,7 @@ export const addTask = async (req, res) => {
 export const getAllTask = async (req, res) => {
   try {
       // const { authToken } = req.cookies; // ✅ Extract token from cookies
-      const authToken = req.headers.authorization
+      const authToken = req.headers.authorization?.split(" ")[1]s
       console.log(req.headers.authorization)
       // console.log(req.cookies)
       // console.log('&&&&&&&&&&&&',authToken)

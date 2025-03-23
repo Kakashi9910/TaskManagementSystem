@@ -40,7 +40,7 @@ export const getAllTask = async (req,res) => {
         }
         res.status(200).send({"userTasks":task.tasks})
     } catch (error) {
-        res.status(500).send({error})
+        res.status(500).send({"error":error.message})
     }
 }
 

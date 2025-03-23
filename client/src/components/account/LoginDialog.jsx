@@ -19,7 +19,7 @@ const LoginDialog = () => {
         email: decode.email,
         name: decode.name,
       };
-      const response = await authUser(userData);
+      const response = await authUser(credentialsResponse.credential);
       console.log("my response", response);
       setAccount(decode);
       Cookies.set("authToken", credentialsResponse.credential, {

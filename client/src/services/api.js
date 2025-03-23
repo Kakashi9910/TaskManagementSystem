@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Cookies from "js-cookie"; // Import js-cookie
 
 
 const URL = import.meta.env.VITE_BACKEND_URL

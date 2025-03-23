@@ -30,19 +30,37 @@ export const addTask = async (req, res) => {
   }
 };
 
-export const getAllTask = async (req,res) => {
-    try {
-        const decoded = jwtDecode(req.cookies.authToken)
-        const task = await Task.findOne({"userEmail":decoded.email})
-        if (!task) {
-            res.status(404).send({"status":"User not found"})
-            return
-        }
-        res.status(200).send({"userTasks":task.tasks})
-    } catch (error) {
-        res.status(500).send({"error":error.message})
-    }
-}
+export const getAllTask = async (req, res) => {
+  try {
+      const { authToken } = req.cookies; // ✅ Extract token from cookies
+      
+      if (!authToken) {
+          return res.status(401).json({ error: "Unauthorized: No token provided" });
+      }
+
+      let decoded;
+      try {
+          decoded = jwtDecode(authToken); // ✅ Decode token safely
+      } catch (error) {
+          return res.status(400).json({ error: "Invalid token format" });
+      }
+
+      console.log("Decoded User:", decoded); // ✅ Debugging
+
+      // ✅ Fetch tasks for the user
+      const task = await Task.findOne({ userEmail: decoded.email });
+
+      if (!task) {
+          return res.status(404).json({ status: "User not found" });
+      }
+
+      return res.status(200).json({ userTasks: task.tasks });
+
+  } catch (error) {
+      console.error("Error fetching tasks:", error);
+      return res.status(500).json({ error: error.message });
+  }
+};
 
 export const updateUserTask = async(req,res) => {
   try {

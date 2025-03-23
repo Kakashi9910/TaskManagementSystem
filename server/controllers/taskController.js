@@ -33,6 +33,11 @@ export const addTask = async (req, res) => {
 export const getAllTask = async (req, res) => {
   try {
       const { authToken } = req.cookies; // ✅ Extract token from cookies
+
+      if(!req.cookies) {
+        return res.status(401).json({ error: "Cookie is not getting send" });
+
+      }
       
       if (!authToken) {
           return res.status(401).json({ error: "Unauthorized: No token provided" });

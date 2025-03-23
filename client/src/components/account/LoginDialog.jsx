@@ -23,10 +23,10 @@ const LoginDialog = () => {
       console.log("my response", response);
       setAccount(decode);
       Cookies.set("authToken", credentialsResponse.credential, {
-        expires: 3, // Expires in 3 hours
-        secure: true, // Ensures cookie is sent only over HTTPS
-        sameSite: "Strict", // Prevents CSRF attacks
-      });
+        expires: 3, // ✅ Expires in 3 hours
+        secure: true, // ✅ Required for HTTPS
+        sameSite: "None", // ✅ Required for cross-origin requests
+    });
     } catch (error) {
       console.log(error);
     }

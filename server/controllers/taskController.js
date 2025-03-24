@@ -5,7 +5,7 @@ import {jwtDecode} from 'jwt-decode'
 export const addTask = async (req, res) => {
   try {
     const { task } = req.body;
-    const decoded = jwtDecode(req.cookies.authToken)
+    const decoded = jwtDecode(req.headers.authorization?.split(" ")[1])
     const userEmail = decoded.email
     if (!userEmail || !task || !task.description || !task.dueDate || !task.status || !task.title) {
       return res.status(400).json({ message: "Invalid input data" });
@@ -32,10 +32,10 @@ export const addTask = async (req, res) => {
 
 export const getAllTask = async (req, res) => {
   try {
-      const { authToken } = req.cookies; // ✅ Extract token fro cookies
-      // const authToken = req.headers.authorization?.split(" ")[1]
-      // console.log(req.headers.authorization)
-      console.log(req.cookies)
+      // const { authToken } = req.cookies; // ✅ Extract token fro cookies
+      const authToken = req.headers.authorization?.split(" ")[1]
+      console.log(req.headers.authorization)
+      // console.log(req.cookies)
       console.log('&&&&&&&&&&&&',authToken)
       if(!req.cookies) {
         return res.status(401).json({ error: req.cookies });
@@ -72,7 +72,7 @@ export const getAllTask = async (req, res) => {
 
 export const updateUserTask = async(req,res) => {
   try {
-    const decoded = jwtDecode(req.cookies.authToken)
+    const decoded = jwtDecode(req.headers.authorization?.split(" ")[1])
     const userEmail = decoded.email
     const {_id} = req.body
     // console.log(req.body)
@@ -98,7 +98,7 @@ export const updateUserTask = async(req,res) => {
 export const deleteTasks = async (req,res) => {
   try {
     console.log(req.body)
-    const decoded = jwtDecode(req.cookies.authToken)
+    const decoded = jwtDecode(req.headers.authorization?.split(" ")[1])
     const userEmail = decoded.email
     const taskIds = req.body.tasks
     const taskData = await Task.findOne({"userEmail":userEmail})

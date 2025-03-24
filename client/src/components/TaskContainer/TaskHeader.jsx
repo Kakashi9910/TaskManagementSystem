@@ -5,7 +5,6 @@ import { AccountContext } from "../../context/AccoutProvider";
 
 const TaskHeader = () => {
     const {setAccount} = useContext(AccountContext)
-    console.log(account)
     return <div className="d-flex justify-content-between">
          <h2>TaskBuddy</h2>
          <div>

@@ -27,7 +27,6 @@ const LoginDialog = () => {
         secure: true, // ✅ Required for HTTPS
         sameSite: "None", // ✅ Required for cross-origin requests
         domain: "taskmanagementsystem-8mwa.onrender.com", // 👈 Set domain explicitly
-        path: "/",
     });
     } catch (error) {
       console.log(error);

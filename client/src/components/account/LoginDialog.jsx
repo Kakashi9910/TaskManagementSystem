@@ -26,7 +26,7 @@ const LoginDialog = () => {
         expires: 3, // ✅ Expires in 3 hours
         secure: true, // ✅ Required for HTTPS
         sameSite: "None", // ✅ Required for cross-origin requests
-        domain: "https://taskmanagementsystem-8mwa.onrender.com", // 👈 Set domain explicitly
+        domain: "taskmanagementsystem-8mwa.onrender.com", // 👈 Set domain explicitly
         path: "/",
     });
     } catch (error) {

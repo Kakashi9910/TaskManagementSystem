@@ -17,6 +17,7 @@ export const authUser = async(userData) => {
 
 export const getUserTask = async() => {
     const token = Cookies.get("authToken"); // ✅ Get token from cookies
+    
     try {
         const response = await axios.get(`${URL}/api/task/get-tasks`,{withCredentials:true,
         headers: {

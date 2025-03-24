@@ -13,12 +13,6 @@ const LoginDialog = () => {
     try {
       const decode = jwtDecode(credentialsResponse.credential);
       console.log(decode);
-      const userData = {
-        iss: decode.iss,
-        sub: decode.sub,
-        email: decode.email,
-        name: decode.name,
-      };
       const response = await authUser(credentialsResponse.credential);
       console.log("my response", response);
       setAccount(decode);

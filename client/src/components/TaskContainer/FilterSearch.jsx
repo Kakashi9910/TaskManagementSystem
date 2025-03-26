@@ -33,7 +33,7 @@ const FilterSearch = ({filter,setFilter}) => {
       </div>
 
       {/* Right Section - Search Input */}
-      <InputGroup className="w-auto" style={{ maxWidth: "250px" }}>
+      <InputGroup className="w-auto hide" style={{ maxWidth: "250px" }}>
         <InputGroup.Text>
           <Search size={16} />
         </InputGroup.Text>

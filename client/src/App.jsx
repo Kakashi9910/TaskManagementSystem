@@ -5,6 +5,7 @@ import { AccountContext } from "./context/AccoutProvider";
 import Cookies from "js-cookie"; // Import js-cookie
 import jwtDecode from 'jwt-decode'
 import TaskComponent from "./components/TaskContainer/TaskComponent";
+import "./App.css"
 
 
 function App() {

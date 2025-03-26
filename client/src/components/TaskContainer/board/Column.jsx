@@ -31,7 +31,7 @@ const Column = ({ col: { list, id } }) => {
         <StyledColumn>
           <StyledList {...provided.droppableProps} ref={provided.innerRef}>
             <h5
-              className={`w-50 fw-light fs-6 border rounded p-2 ${
+              className={`w-50 fw-light fs-6 border rounded p-2 full-sm-width ${
                 id === "Todo"
                   ? "bg-warning"
                   : id === "Inprogress"

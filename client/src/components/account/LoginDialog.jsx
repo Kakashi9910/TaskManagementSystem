@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const LoginDialog = () => {
   const { setAccount } = useContext(AccountContext);
-
+  
   const handleSuccess = async (credentialsResponse) => {
     try {
       const decode = jwtDecode(credentialsResponse.credential);
@@ -29,7 +29,7 @@ const LoginDialog = () => {
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
-      <div className="text-center p-4 bg-white shadow rounded w-25">
+      <div className="text-center p-4 bg-white shadow rounded w-25 custom-sm-w-75">
         {/* Logo */}
         <div className="mb-3">
           <h2 className="text-primary fw-bold">
